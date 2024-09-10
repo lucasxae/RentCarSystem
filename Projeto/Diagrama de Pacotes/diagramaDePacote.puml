@@ -1,0 +1,26 @@
+@startuml
+package "Autenticação" {
+}
+
+package "Infraestrutura" {
+}
+
+package "Gestao Contratantes" {
+}
+
+package "Gestao de Veiculos" {
+}
+
+package "Gerenciar pedidos e contrato" {
+}
+
+package "InterfaceWeb" {
+}
+
+"Autenticação" -> "Infraestrutura"
+"Infraestrutura" -> "Gestao Contratantes"
+"Gestao Contratantes" -> "Gestao de Veiculos"
+"Gestao Contratantes" ..> "Gerenciar pedidos e contrato"
+"Gerenciar pedidos e contrato" ..> "InterfaceWeb"
+"Gestao Contratantes" ..> "InterfaceWeb"
+@enduml
