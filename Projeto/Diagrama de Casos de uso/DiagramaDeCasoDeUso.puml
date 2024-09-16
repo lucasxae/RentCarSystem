@@ -1,0 +1,23 @@
+@startuml
+Left to right direction
+
+Actor Cliente as c
+Actor Agente as a
+
+package "Sistema de aluguel de carros"{
+  usecase "Autenticação/cadastro" as UC1
+  usecase "Gerenciar pedido" as UC2
+  usecase "Analisar pedido" as UC3
+  usecase "Modificar pedido" as UC4
+  usecase "Executar pedido" as UC5
+}
+
+c-->UC2
+a-->UC3
+a-->UC4
+a--->UC5
+
+(UC2) .>(UC1) : <<includes>>
+(UC3) .>(UC4) : <<extends>>
+
+@enduml
