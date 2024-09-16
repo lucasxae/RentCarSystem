@@ -2,25 +2,31 @@
 package "Autenticação" {
 }
 
-package "Infraestrutura" {
+package "Cliente" {
 }
 
-package "Gestao Contratantes" {
+package "Agente" {
 }
 
-package "Gestao de Veiculos" {
+package "Empregador" {
 }
 
-package "Gerenciar pedidos e contrato" {
+package "Pedido" {
 }
 
-package "InterfaceWeb" {
+package "Veiculo" {
 }
 
-"Autenticação" -> "Infraestrutura"
-"Infraestrutura" -> "Gestao Contratantes"
-"Gestao Contratantes" -> "Gestao de Veiculos"
-"Gestao Contratantes" ..> "Gerenciar pedidos e contrato"
-"Gerenciar pedidos e contrato" ..> "InterfaceWeb"
-"Gestao Contratantes" ..> "InterfaceWeb"
+package "Contrato" {
+}
+
+package "ContratoCredito" {
+}
+
+"Autenticação" -> "Cliente"
+"Agente" -> "Pedido"
+"Pedido" -> "Veiculo"
+"Pedido" -> "Contrato"
+"Contrato" -> "ContratoCredito"
+"Cliente" -> "Empregador"
 @enduml
