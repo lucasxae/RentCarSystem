@@ -5,23 +5,19 @@ Pretende-se desenvolver um sistema para apoio à gestão de aluguéis de automó
 <details>
 <summary><b>Mais detalhes</b></summary>
 
-O sistema só pode ser utilizado após cadastro prévio.
+1. O sistema só pode ser utilizado após cadastro prévio.
+2. Os usuários individuais (clientes) podem introduzir, modificar, consultar e cancelar pedidos de aluguel (assinatura). Por outro lado, os agentes (empresas e bancos) podem modificar e avaliar pedidos.
+3. Após introdução no sistema, os pedidos são analisados do ponto de vista financeiro pelos agentes e, em caso de parecer positivo, são colocados à sua consideração para execução do contrato.
+4. Sobre os contratantes do aluguel (assinatura), armazenam-se os dados de identificação (RG, CPF, Nome, Endereço), profissão, as entidades empregadoras e os respectivos rendimentos auferidos (máximo 3).
+5. Dependendo do tipo de contrato, os automóveis alugados podem ser registrados como propriedade dos clientes, empresas ou bancos.
+6. Sobre os automóveis, o sistema registra a matrícula, ano, marca, modelo e placa.
+7. O aluguel (assinatura) de um automóvel pode estar associado com um contrato de crédito (seguro), o qual foi concedido por um dos bancos agentes. 
+8. Em termos do sistema, o servidor central encontra-se ligado aos computadores locais dos clientes e aos diversos agentes aderentes através da Internet.
+9. O sistema pode ser subdividido em dois subsistemas: um para gestão de pedidos e contratos; e outro para a construção dinâmica das páginas web.
 
-Os usuários individuais (clientes) podem introduzir, modificar, consultar e cancelar pedidos de aluguel. Por outro lado, os agentes (empresas e bancos) podem modificar e avaliar pedidos.
-
-Após introdução no sistema, os pedidos são analisados do ponto de vista financeiro pelos agentes e, em caso de parecer positivo, são colocados à sua consideração para execução do contrato.
-
-Sobre os contratantes do aluguel, armazenam-se os dados de identificação (RG, CPF, Nome, Endereço), profissão, as entidades empregadoras e os respectivos rendimentos auferidos (máximo 3).
-
-Dependendo do tipo de contrato, os automóveis alugados podem ser registrados como propriedade dos clientes, empresas ou bancos.
-
-Sobre os automóveis, o sistema registra a matrícula, ano, marca, modelo e placa.
-
-O aluguel de um automóvel pode estar associado com um contrato de crédito, o qual foi concedido por um dos bancos agentes. 
-
-Em termos do sistema, o servidor central encontra-se ligado aos computadores locais dos clientes e aos diversos agentes aderentes através da Internet.
-
-O sistema pode ser subdividido em dois subsistemas: um para gestão de pedidos e contratos; e outro para a construção dinâmica das páginas web.
+**Informações Complementares:**
+- A empresa de locação trabalha com o sistema de Assinatura (aluguel de longa permanência) e os contratos podem ser de: 12, 24, 36 ou 48 meses.
+- Ao selecionar o tipo de contratante, o contratante tem a opção de optar pela possível compra do veículo ao final do contrato, e nestes casos, o veículo já irá ter seu documento de propriedade emitido em nome do contratante.
 
 </details>
 
