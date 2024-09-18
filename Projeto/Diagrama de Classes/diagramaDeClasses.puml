@@ -41,7 +41,7 @@ class Veiculo {
   -proprietario: String
 }
 
-class Contrato {
+class ContratoAluguel {
   -tipo: String
   -duracao: Integer
   -opcaoCompra: Boolean
@@ -64,11 +64,11 @@ enum DuracaoContrato {
     - 48
 }
 
-Contrato -- DuracaoContrato
+ContratoAluguel -- DuracaoContrato
 Cliente --  Pedido
 Agente  -- Pedido
 Pedido -- Veiculo
-Pedido -- Contrato
-Contrato -- ContratoCredito
+Pedido -- ContratoAluguel
+ContratoAluguel -- ContratoCredito
 Cliente -- Empregador
 @enduml
