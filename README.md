@@ -49,6 +49,8 @@ O sistema pode ser subdividido em dois subsistemas: um para gestão de pedidos e
 - O sistema deve validar se todos os campos obrigatórios foram preenchidos (dados do carro, período, tipo de contrato).
 - O pedido deve ser associado ao cliente e estar disponível para consulta.
 
+---
+
 ### 3. Modificar Pedido de Aluguel
 **Como** um cliente, **eu quero** modificar um pedido de aluguel existente, **para** ajustar informações antes de sua aprovação.
 
