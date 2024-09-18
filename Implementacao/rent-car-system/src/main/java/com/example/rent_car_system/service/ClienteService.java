@@ -6,24 +6,28 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.rent_car_system.model.Client;
-import com.example.rent_car_system.repository.ClientRepository;
+import com.example.rent_car_system.exceptions.ClienteDuplicadoException;
+import com.example.rent_car_system.model.Cliente;
+import com.example.rent_car_system.repository.ClienteRepository;
 
 @Service
-public class ClientService {
+public class ClienteService {
 
     @Autowired
-    private ClientRepository clienteRepository;
+    private ClienteRepository clienteRepository;
 
-    public List<Client> listarTodosClientes() {
+    public List<Cliente> listarTodosClientes() {
         return clienteRepository.findAll();
     }
 
-    public Optional<Client> buscarClientePorId(Long id) {
+    public Optional<Cliente> buscarClientePorId(Long id) {
         return clienteRepository.findById(id);
     }
 
-    public Client salvarCliente(Client cliente) {
+    public Cliente salvarCliente(Cliente cliente) {
+        if(clienteRepository.existsByCPF(cliente.getCPF())) {
+            throw new ClienteDuplicadoException("O cliente já existe!");
+        }
         return clienteRepository.save(cliente);
     }
 
@@ -31,16 +35,16 @@ public class ClientService {
         clienteRepository.deleteById(id);
     }
 
-    public Client atualizarCliente(Long id, Client clienteAtualizado) {
+    public Cliente atualizarCliente(Long id, Cliente clienteAtualizado) {
         return clienteRepository.findById(id)
             .map(cliente -> {
-                cliente.setNome(clienteAtualizado.getNome());
                 cliente.setCPF(clienteAtualizado.getCPF());
                 cliente.setRG(clienteAtualizado.getRG());
+                cliente.setNome(clienteAtualizado.getNome());
                 cliente.setEndereco(clienteAtualizado.getEndereco());
                 cliente.setProfissao(clienteAtualizado.getProfissao());
-                // cliente.setEmpregadores(clienteAtualizado.getEmpregadores());
-                // cliente.setPedidos(clienteAtualizado.getPedidos());
+                cliente.setEmpregadores(clienteAtualizado.getEmpregadores());
+                cliente.setPedidos(clienteAtualizado.getPedidos());
                 return clienteRepository.save(cliente);
             })
             .orElseThrow(() -> new RuntimeException("Cliente não encontrado!"));

@@ -1,41 +1,44 @@
 package com.example.rent_car_system.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
-public class Client {
+public class Cliente {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private String RG;
     private String CPF;
     private String nome;
     private String endereco;
     private String profissao;
     
-    // @OneToMany
-    // private List<Empregador> empregadores;
+    @OneToMany
+    private List<Empregador> empregadores;
 
-    // @OneToMany
-    // private List<Pedido> pedidos;
+    @OneToMany
+    private List<Pedido> pedidos;
 
-    public Client() {
+    public Cliente() {
 
     }
 
-    public Client(String RG, String CPF, String nome, String endereco, String profissao) {
+    public Cliente(String RG, String CPF, String nome, String endereco, String profissao, List<Empregador> empregadores, List<Pedido> pedidos) {
         this.RG = RG;
         this.CPF = CPF;
         this.nome = nome;
         this.endereco = endereco;
         this.profissao = profissao;
-        // this.empregadores = empregadores;
-        // this.pedidos = pedidos;
+        this.empregadores = empregadores;
+        this.pedidos = pedidos;
     }
 
     public Long getId() {
@@ -82,19 +85,19 @@ public class Client {
         this.profissao = profissao;
     }
 
-    // public List<Empregador> getEmpregadores() {
-    //     return this.empregadores;
-    // }
+    public List<Empregador> getEmpregadores() {
+        return this.empregadores;
+    }
 
-    // public void setEmpregadores(List<Empregador> empregadores) {
-    //     this.empregadores = empregadores;
-    // }
+    public void setEmpregadores(List<Empregador> empregadores) {
+        this.empregadores = empregadores;
+    }
 
-    // public List<Pedido> getPedidos() {
-    //     return this.pedidos;
-    // }
+    public List<Pedido> getPedidos() {
+        return this.pedidos;
+    }
 
-    // public void setPedidos(List<Pedido> pedidos) {
-    //     this.pedidos = pedidos;
-    // }
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
 }
