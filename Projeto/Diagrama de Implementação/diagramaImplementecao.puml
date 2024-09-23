@@ -1,0 +1,52 @@
+@startuml
+!define RECTANGLE_RECT <<Rectangle>>
+
+component "Sistema Central" as SC {
+    
+    component "Subsistema Gestão de Pedidos e Contratos" as SGPC {
+        interface IGestaoPedidos
+        interface IContratos
+        IGestaoPedidos --> IContratos
+    }
+    
+    component "Subsistema Construção de Páginas Web" as SCPW {
+        interface IWebInterface
+        interface IUsuario
+        IUsuario --> IWebInterface
+    }
+    
+    SGPC --> SCPW : Envia dados dos pedidos
+}
+
+rectangle "Dispositivos Clientes" as DC {
+    component "Navegadores Web" as NW {
+        interface Cliente
+    }
+    Cliente --> SCPW : Consulta e faz pedidos de aluguel
+}
+
+rectangle "Agentes" as A {
+    component "Sistema dos Bancos" as SB {
+        interface Banco
+    }
+    component "Sistema das Empresas" as SE {
+        interface Empresa
+    }
+    Banco --> SGPC : Avalia pedidos
+    Empresa --> SGPC : Avalia pedidos
+}
+
+component "Serviço de Crédito" as SCred {
+    interface Credito
+    Credito --> SGPC : Associa contratos de crédito aos pedidos
+}
+
+component "Registro de Automóveis" as RA {
+    interface Automovel
+    Automovel --> SGPC : Armazena dados dos automóveis
+}
+
+DC --> SC : Comunicação via Internet
+A --> SC : Comunicação via Internet
+
+@enduml
