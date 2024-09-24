@@ -1,0 +1,52 @@
+@startuml
+!define RECTANGLE RECTANGLE
+
+node "Servidor do Cliente" {
+    [Aplicativo Web Cliente]
+}
+
+node "Servidor de Backend" {
+    package "Módulos Backend" {
+        [Gerenciamento de Usuários]
+        [Gerenciamento de Pedidos]
+        [Gerenciamento de Contratos]
+    }
+    database "Banco de Dados Relacional" {
+        [Tabela Usuários]
+        [Tabela Pedidos]
+        [Tabela Contratos]
+        [Tabela Veiculos]
+        [Tabela Empresas]
+    }
+}
+
+node "Agentes" {
+    package "Módulos de Agente" {
+        [Sistema de Banco]
+        [Sistema de Empresas]
+    }
+}
+
+node "Outros Serviços" {
+    package "Módulos de Outros Serviços" {
+        [Gerenciamento de Credito]
+        [Gerenciamento de Automoveis]
+    }
+}
+
+cloud "API de Pagamento Externa" {
+    [Sistema de Pagamento]
+}
+
+[Aplicativo Web Cliente] --> [Gerenciamento de Usuários] : Autenticação
+[Aplicativo Web Cliente] --> [Gerenciamento de Pedidos] : Gerenciamento de Pedidos
+[Aplicativo Web Cliente] --> [Gerenciamento de Contratos] : Gerenciamento de Contratos
+
+[Gerenciamento de Usuários] --> [Tabela Usuários] : CRUD
+[Gerenciamento de Pedidos] --> [Tabela Pedidos] : CRUD
+[Gerenciamento de Contratos] --> [Tabela Contratos] : CRUD
+[Sistema de Empresas] --> [Tabela Empresas] : CRUD
+[Sistema de Banco] --> [Sistema de Pagamento] : Avaliação de Pedidos
+[Gerenciamento de Automoveis] --> [Tabela Veiculos]: CRUD
+[Gerenciamento de Credito] --> [Sistema de Pagamento] : Associar Contratos
+@enduml
