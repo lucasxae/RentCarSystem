@@ -1,57 +1,15 @@
 @startuml
 
-' Navegadores conectados à camada API
-component "Navegador" as browser1
-
+component "Interface Rent car system" as interfaceLayer
 ' Camada API
-component "Camada de API" as apiLayer
+component "API Rent car system " as apiLayer
 
-' REST Components
-component "Assinatura" as produtosRest
-component "Empresas" as clientesRest
-component "Cliente" as tpClient
-component "Bancos" as pedidosRest
-component "Pagamentos" as pagamentosRest
-component "Contrato" as administradoresRest
-
+interfaceLayer --> apiLayer
 ' SQL Servers
 database "SGBD" as sql
 
-' TCP/IP Interfaces
-interface "TCP/IP" as tcpProdutos
-interface "TCP/IP" as tcpClientes
-interface "TCP/IP" as tcpPedidos
-interface "TCP/IP" as tcpPagamentos
-interface "TCP/IP" as tcpAdministradores
-interface "TCP/IP" as tcpClient
-
-' Conexões
-browser1 <.. apiLayer
-
-apiLayer --> produtosRest
-apiLayer --> clientesRest
-apiLayer --> pedidosRest
-apiLayer --> pagamentosRest
-apiLayer --> administradoresRest
-apiLayer --> tpClient
-
 ' Organizando as conexões de interfaces
-produtosRest -down-( tcpProdutos
-tcpProdutos -down- sql
-
-tpClient -down-(tcpClient
-tcpClient -down- sql
-
-clientesRest -down-( tcpClientes
-tcpClientes -down- sql
-
-pedidosRest -down-( tcpPedidos
-tcpPedidos -down- sql
-
-pagamentosRest -down-( tcpPagamentos
-tcpPagamentos -down- sql
-
-administradoresRest -down-( tcpAdministradores
-tcpAdministradores -down- sql
+apiLayer -down-( tcp
+tcp -down- sql
 
 @enduml

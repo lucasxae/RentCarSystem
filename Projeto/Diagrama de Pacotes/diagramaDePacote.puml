@@ -1,28 +1,36 @@
 @startuml
-package "Autenticação" {
+package "Beans" {
 }
 
-package "Cliente" {
+package "Controllers" {
 }
 
-package "Agente" {
+package "DAO" {
 }
 
-package "Empregador" {
+package "Enums" {
 }
 
-package "Pedido" {
+package "Exceptions" {
 }
 
-package "Veiculo" {
+package "model" {
 }
 
-package "Contrato" {
+package "Repository" {
 }
 
-package "ContratoCredito" {
+package "Service" {
 }
 
+package "Resources" {
+}
+
+package "WebApp" {
+}
+
+package "Src" {
+}
 "Autenticação" -> "Cliente"
 "Agente" -> "Pedido"
 "Pedido" -> "Veiculo"
