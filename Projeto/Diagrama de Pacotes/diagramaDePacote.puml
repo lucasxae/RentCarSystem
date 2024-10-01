@@ -1,40 +1,39 @@
 @startuml
-package "Beans" {
+
+package "rent-car-system" {
+    package src {
+        package main {
+            package java {
+                package com {
+                    package example {
+                        package rentcar {
+                            package controller
+                            package model
+                            package repository
+                            package service
+                        }
+                    }
+                }
+            }
+            package resources
+        }
+        package test {
+            package java {
+                package com {
+                    package example {
+                        package rentcar {
+                            package controller
+                            package model
+                            package repository
+                            package service
+                        }
+                    }
+                }
+            }
+            package resources
+        }
+    }
+    package "pom.xml"
 }
 
-package "Controllers" {
-}
-
-package "DAO" {
-}
-
-package "Enums" {
-}
-
-package "Exceptions" {
-}
-
-package "model" {
-}
-
-package "Repository" {
-}
-
-package "Service" {
-}
-
-package "Resources" {
-}
-
-package "WebApp" {
-}
-
-package "Src" {
-}
-"Autenticação" -> "Cliente"
-"Agente" -> "Pedido"
-"Pedido" -> "Veiculo"
-"Pedido" -> "Contrato"
-"Contrato" -> "ContratoCredito"
-"Cliente" -> "Empregador"
 @enduml
