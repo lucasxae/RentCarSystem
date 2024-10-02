@@ -10,12 +10,14 @@ package "Sistema de aluguel de carros"{
   usecase "Analisar pedido" as UC3
   usecase "Modificar pedido" as UC4
   usecase "Executar pedido" as UC5
+  usecase "Conceder contrato de crédito" as UC6
 }
 
 c-->UC2
 a-->UC3
 a-->UC4
 a--->UC5
+a-->UC6
 
 (UC2) .>(UC1) : <<includes>>
 (UC3) .>(UC4) : <<extends>>
